@@ -1,3 +1,4 @@
+//Import packages
 const mongoose = require("mongoose");
 const express = require("express");
 const Schema = mongoose.Schema;
@@ -22,6 +23,8 @@ const Game = mongoose.model("game_tables", GameSchema);
 const app = express();
 app.use(express.json());
 const HTTP_PORT = process.env.PORT || 8080;
+
+// Endpoint
 
 //View A List of items from Game Table
 app.get("/api/items", (req, res) => {
