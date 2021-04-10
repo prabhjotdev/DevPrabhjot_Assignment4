@@ -39,7 +39,7 @@ app.get("/api/items", (req, res) => {
     });
 });
 
-//View a single Item from Game Table
+//View a Single Item from Game Table
 app.get("/api/items/:item_name", (req, res) => {
   Game.findOne({ name: req.params.item_name })
     .exec()
@@ -68,9 +68,9 @@ app.get("/api/items/:item_name", (req, res) => {
     });
 });
 
-//Add a new Item into Game Table
+//Insert a new Item into Game Table
 app.post("/api/items", (req, res) => {
-  
+
   if(req.body.hasOwnProperty("name") === false || req.body.hasOwnProperty("rarity") === false){
     const msg = {
       statusCode: 422,
@@ -106,7 +106,7 @@ app.delete("/api/items/:item_name", (req, res) => {
       if (deletedItem === null) {
         const msg = {
           statusCode: 404,
-          msg: "Could not find the Item in the database",
+          msg: "Could not find the Item in the Database",
         };
         res.status(404).send(msg);
       } else {
@@ -123,11 +123,11 @@ app.delete("/api/items/:item_name", (req, res) => {
     });
 });
 
-//Update a Item by Id
+//Update a Item
 app.put("/api/items/:item_id", (req, res) => {
   const msg = {
     statusCode: 501,
-    msg: "Error, Update Item not implemented. Coming Soon!",
+    msg: "Error, Update Item not implemented.",
   };
   res.status(501).send(msg);
 });
@@ -136,7 +136,7 @@ app.put("/api/items/:item_id", (req, res) => {
 app.get("*", function (req, res) {
   const msg = {
     statusCode: 404,
-    msg: "Request not found",
+    msg: "Your request was not found",
   };
   res.status(404).send(msg);
 });
