@@ -31,8 +31,11 @@ app.get("/api/items", (req, res) => {
       res.status(200).send(results);
     })
     .catch((err) => {
-      console.log(err);
-      res.status(500).send("Error when getting items from database.");
+      const msg = {
+        statusCode: 500,
+        msg: "Error when getting items from database."
+      }
+      res.status(500).send(msg);
     });
 });
 
@@ -56,10 +59,7 @@ app.get("/api/items/:item_name", (req, res) => {
       console.log(err);
       const msg = {
         statusCode: 500,
-        msg:
-          "Error when getting item with the name: " +
-          req.params.item_name +
-          " from database.",
+        msg:"Error when getting item with the name: " + req.params.item_name + " from database.",
       };
       res.status(500).send(msg);
     });
@@ -91,7 +91,11 @@ app.delete("/api/items/:item_name", (req, res) => {
     .exec()
     .then((deletedItem) => {
       if (deletedItem === null) {
-        res.status(404).send("Could not find the Item in the database");
+        const msg = {
+          statusCode:404,
+          msg: "Could not find the Item in the database"
+        }
+        res.status(404).send(msg);
       } else {
         res.status(200).send(deletedItem);
       }
@@ -106,13 +110,17 @@ app.delete("/api/items/:item_name", (req, res) => {
     });
 });
 
-//Update a Item from Game Table
+//Update a Item by Id
 app.put("/api/items/:item_id", (req, res) => {
   Game.findOneAndUpdate({ _id: req.params.item_id }, req.body, { new: true })
     .exec()
     .then((updatedItem) => {
       if (updatedItem === null) {
-        res.status(404).send("Could not find the Item in the database");
+        const msg = {
+          statusCode: 404,
+          msg: "Could not find the Item in the database"
+        }
+        res.status(404).send(msg);
       } else {
         res.status(200).send(updatedItem);
       }
@@ -126,7 +134,6 @@ app.put("/api/items/:item_id", (req, res) => {
       res.status(500).send(msg);
     });
 });
-
 
 
 // ----------------------------------
