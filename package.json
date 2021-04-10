@@ -1,0 +1,25 @@
+{
+  "name": "DevPrabhjot_Assignment4",
+  "version": "1.0.0",
+  "description": "Distribute Mobility Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabhjotdev/DevPrabhjot_Assignment4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.2"
+  },
+  "bugs": {
+    "url": "https://github.com/prabhjotdev/DevPrabhjot_Assignment4/issues"
+  },
+  "homepage": "https://github.com/prabhjotdev/DevPrabhjot_Assignment4#readme"
+}
